@@ -1,0 +1,19 @@
+# .gitignore
+.env
+*.log
+*.pid
+*.sock
+node_modules/
+__pycache__/
+secrets/
+# Ignore all .env files anywhere
+*.env
+
+# Ignore the secrets folder
+secrets/
+
+# Ignore the data/ directory where sensitive config is stored
+data/
+
+# Optional: Ignore backup/old files
+*~
