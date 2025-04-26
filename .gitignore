@@ -8,3 +8,4 @@ secrets.env
 node_modules/
 __pycache__/
 secrets/
+acme.json
