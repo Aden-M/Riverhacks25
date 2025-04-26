@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Using the color scheme from the provided image */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 12%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 40%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 12%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  
+  /* Primary: Yellow gold #F2C94C */
+  --primary: 43 88% 62%;
+  --primary-foreground: 0 0% 12%;
+  
+  /* Secondary: Darker gold #BF9D37 */
+  --secondary: 43 55% 48%;
+  --secondary-foreground: 0 0% 100%;
+  
+  /* Tertiary: Tan/olive gold #B3A369 */
+  --tertiary: 49 30% 56%;
+  --tertiary-foreground: 0 0% 12%;
+  
+  /* Accent: Using tertiary color */
+  --accent: 49 30% 56%;
+  --accent-foreground: 0 0% 12%;
+  
+  /* Error: Coral red #F05454 */
+  --destructive: 0 85% 63%;
+  --destructive-foreground: 0 0% 100%;
+  
+  /* Neutral: Medium gray #A0A0A0 */
+  --neutral: 0 0% 63%;
+  
+  /* Neutral Variant: Darker gray #8A8A8A */
+  --neutral-variant: 0 0% 54%;
+  
+  --ring: 43 88% 62%;
+  --radius: 0.5rem;
+  }
+  .dark {
+  /* Dark theme using the color scheme from the provided image */
+  --background: 0 0% 16%;
+  --foreground: 0 0% 98%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 70%;
+  --popover: 0 0% 16%;
+  --popover-foreground: 0 0% 98%;
+  --card: 0 0% 20%;
+  --card-foreground: 0 0% 98%;
+  --border: 0 0% 25%;
+  --input: 0 0% 25%;
+  
+  /* Primary: Yellow gold #F2C94C */
+  --primary: 43 88% 62%;
+  --primary-foreground: 0 0% 12%;
+  
+  /* Secondary: Darker gold #BF9D37 */
+  --secondary: 43 55% 48%;
+  --secondary-foreground: 0 0% 98%;
+  
+  /* Tertiary: Tan/olive gold #B3A369 */
+  --tertiary: 49 30% 56%;
+  --tertiary-foreground: 0 0% 12%;
+  
+  /* Accent: Using tertiary color */
+  --accent: 49 30% 56%;
+  --accent-foreground: 0 0% 12%;
+  
+  /* Error: Coral red #F05454 */
+  --destructive: 0 85% 63%;
+  --destructive-foreground: 0 0% 100%;
+  
+  /* Neutral: Medium gray #A0A0A0 */
+  --neutral: 0 0% 63%;
+  
+  /* Neutral Variant: Darker gray #8A8A8A */
+  --neutral-variant: 0 0% 54%;
+  
+  --ring: 43 88% 62%;
+  --radius: 0.5rem;
+  }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
