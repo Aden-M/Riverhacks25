@@ -9,6 +9,8 @@ app.set('view engine', 'ejs');
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/resources', express.static('resources'));
+
 
 // Routes
 app.get('/map', (req, res) => {
@@ -40,3 +42,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on http://0.0.0.0:${PORT}/map`);
 });
+
+

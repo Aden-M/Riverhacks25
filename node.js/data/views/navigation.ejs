@@ -12,41 +12,60 @@
     body {
       font-family: 'Public Sans', sans-serif;
       text-align: center;
-      margin-top: 3rem;
+      margin-top: 2rem;
+      background-color: #f9f9f9;
     }
+    
+    .logo {
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+
     .welcome-box {
-      margin: 2rem auto;
+      margin: 1rem auto;
       padding: 2rem;
       max-width: 500px;
       text-align: center;
       font-weight: bold;
       font-size: 2rem;
-      color: #007BFF;
-      border: 2px solid #007BFF;
+      color: #1b1b1b;
+      border: 1px solid #d6d7d9;
       border-radius: 8px;
-      background-color: #f0f8ff;
-      box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
+
     .button-container {
       margin-top: 2rem;
     }
+
     .nav-button {
-      background-color: #007BFF;
+      background-color: #005ea2;
       color: white;
       border: none;
-      padding: 1rem 2rem;
+      padding: 1rem 2.5rem;
       margin: 0.5rem;
-      border-radius: 5px;
+      border-radius: 4px;
       font-size: 1.2rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .nav-button:hover {
-      background-color: #0056b3;
+      background-color: #004080;
     }
   </style>
 </head>
 <body>
+
+  <div class="logo">
+    <img src="/resources/logo.png" alt="Site Logo">
+  </div>
 
   <div class="welcome-box">
     Welcome to our site!
