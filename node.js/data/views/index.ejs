@@ -2,51 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Map Info</title>
+  <title>Map Page</title>
 
-  <!-- Public Sans font -->
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Leaflet CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
+  
   <style>
     body {
-      font-family: 'Public Sans', 'Helvetica', 'Arial', sans-serif;
+      font-family: 'Public Sans', sans-serif;
+      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-    }
-    #map {
       height: 100vh;
-      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #ffffff;
-      color: #333333;
-      padding: 15px 20px;
-      font-weight: 600;
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #d6d7d9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .spacer {
+      width: 150px; /* Same width as the button for true centering */
+    }
+
+    .welcome-box {
+      font-weight: bold;
       font-size: 1.5rem;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
+      color: #1b1b1b;
+      border: 1px solid #d6d7d9;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 1rem 2rem;
+      margin: 0 auto;
+      white-space: nowrap;
+    }
+
+    .back-button {
+      background-color: #005ea2;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .back-button:hover {
+      background-color: #004080;
+    }
+
+    #map {
+      flex: 1;
+      width: 100%;
     }
   </style>
 </head>
+
 <body>
-  <header>🗺️ Map Info Page</header>
+
+  <div class="header">
+    <div class="spacer"></div> <!-- Invisible spacer -->
+    <div class="welcome-box">
+      🗺️ Explore the Map
+    </div>
+    <button class="back-button" onclick="location.href='/navigation'">← Back to Navigation</button>
+  </div>
 
   <div id="map"></div>
 
-  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <!-- Your custom map logic -->
   <script src="/js/map.js"></script>
+
 </body>
 </html>
