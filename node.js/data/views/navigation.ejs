@@ -4,32 +4,36 @@
   <meta charset="UTF-8">
   <title>Navigation Page</title>
   
-  <!-- Load Public Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="/css/style.css">
+
   <style>
     body {
       font-family: 'Public Sans', sans-serif;
+      background-color: #f9f9f9;
       text-align: center;
       margin-top: 2rem;
-      background-color: #f9f9f9;
     }
-    
+
     .logo {
       margin-top: 1rem;
       margin-bottom: 1.5rem;
     }
+
     .logo img {
       height: 60px;
       width: auto;
     }
 
-    .welcome-box {
-      margin: 1rem auto;
-      padding: 2rem;
+    .content-container {
+      margin: 0 auto;
       max-width: 500px;
-      text-align: center;
+      padding: 0 1rem; /* slight padding for mobile friendliness */
+    }
+
+    .welcome-box {
+      margin: 1rem 0;
+      padding: 2rem;
       font-weight: bold;
       font-size: 2rem;
       color: #1b1b1b;
@@ -40,40 +44,58 @@
     }
 
     .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
       margin-top: 2rem;
+      justify-content: center;
     }
 
     .nav-button {
+      flex: 1 1 calc(50% - 0.5rem); /* 2 buttons per row, gap aware */
       background-color: #005ea2;
       color: white;
       border: none;
-      padding: 1rem 2.5rem;
-      margin: 0.5rem;
+      padding: 1rem;
       border-radius: 4px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      min-width: 120px;
     }
+
     .nav-button:hover {
       background-color: #004080;
     }
+
+    @media (max-width: 600px) {
+      .nav-button {
+        flex: 1 1 100%; /* Stack vertically on small screens */
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
   <div class="logo">
     <img src="/resources/logo.png" alt="Site Logo">
   </div>
 
-  <div class="welcome-box">
-    Welcome to our site!
-  </div>
+  <div class="content-container">
+    <div class="welcome-box">
+      Welcome to our site!
+    </div>
 
-  <div class="button-container">
-    <button class="nav-button" onclick="location.href='/info'">Go to Info</button>
-    <button class="nav-button" onclick="location.href='/map'">Go to Map</button>
+    <div class="button-container">
+      <button class="nav-button" onclick="location.href='/info'">Go to Info</button>
+      <button class="nav-button" onclick="location.href='/map'">Go to Map</button>
+      <button class="nav-button">Go to Support</button>
+      <button class="nav-button">Go to User Profile</button>
+    </div>
   </div>
 
 </body>
