@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map - Events & Resources</title>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        #map {
+            height: 70vh;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .map-controls {
+            margin-bottom: 1rem;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .control-button {
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .control-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Events & Resources Map</h1>
+    </header>
+
+    <div class="container">
+        <a href="/" class="back-button">← Back to Home</a>
+
+        <div class="map-controls">
+            <button class="control-button" onclick="alert('Sample Event: Community Meeting\nLocation: City Hall\nDate: Next Week')">Show Events</button>
+            <button class="control-button" onclick="alert('Sample Resource: Emergency Shelter\nLocation: Community Center\nStatus: Available')">Show Resources</button>
+        </div>
+
+        <div id="map"></div>
+
+        <div class="map-legend">
+            <h3>Map Legend</h3>
+            <p>🔴 Events - Community gatherings, meetings, and local activities</p>
+            <p>🔵 Resources - Emergency services, shelters, and community resources</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map centered on a default location
+        const map = L.map('map').setView([39.8283, -98.5795], 4); // Center of USA
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add a sample marker
+        L.marker([39.8283, -98.5795])
+            .bindPopup('Sample Location')
+            .addTo(map);
+    </script>
+</body>
+</html>

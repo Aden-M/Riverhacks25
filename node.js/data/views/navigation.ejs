@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Page</title>
+  
+  <!-- Load Public Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      font-family: 'Public Sans', sans-serif;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .welcome-box {
+      margin: 2rem auto;
+      padding: 2rem;
+      max-width: 500px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 2rem;
+      color: #0077cc;
+      border: 2px solid #0077cc;
+      border-radius: 8px;
+      background-color: #f0f8ff;
+      box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    }
+    .button-container {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+    }
+    .nav-button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    .nav-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome-box">
+    Welcome to our site!
+  </div>
+
+  <div class="button-container">
+    <button class="nav-button" onclick="location.href='/info'">Information</button>
+    <button class="nav-button" onclick="location.href='/map'">Map</button>
+    <button class="nav-button" onclick="location.href='/updates'">Updates & Events</button>
+    <button class="nav-button" onclick="location.href='/support'">Support</button>
+    <button class="nav-button" onclick="location.href='/admin'">Admin</button>
+    <button class="nav-button" onclick="location.href='/users'">Users</button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map - Events & Resources</title>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 70vh;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .map-controls {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Events & Resources Map</h1>
+    </header>
+
+    <div class="map-controls">
+        <button class="btn" onclick="filterResources('events')">Show Events</button>
+        <button class="btn" onclick="filterResources('resources')">Show Resources</button>
+        <button class="btn" onclick="showAll()">Show All</button>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="/js/map.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+Got it! ✔️
+You want a block text version — simple, technical explanations, no fancy formatting, so another GPT instance (or program) can easily read it.
+
+Here’s the clean block text version:
+
+Project Structure and Strategy
+
+The site uses Node.js with the Express framework to serve HTTP requests.
+
+EJS (Embedded JavaScript Templates) is used for server-side rendering of HTML templates (.ejs files).
+
+The /public directory is exposed statically. It contains CSS and client-side JavaScript files for each page to handle frontend behavior.
+
+A new /resources directory is used to store static assets such as images (for example, logo.png). It is also exposed as static content via Express.
+
+Each page in the site is backed by:
+
+An .ejs template for the HTML structure.
+
+A corresponding .js file in /public/js/ for dynamic frontend behavior (if needed).
+
+Main routes are:
+
+/map – serves the map page (Leaflet.js integration).
+
+/info – serves a searchable list page.
+
+/navigation – serves a navigation page with buttons leading to other sections.
+
+Static pages like /navigation include inline or linked CSS for styling and optional frontend JS scripts for additional interactivity.
+
+The Express server explicitly serves both /public and /resources directories for static file access.
+
+Future strategy allows scaling by:
+
+Adding more .ejs templates and matching .js files.
+
+Introducing database connections for dynamic content.
+
+Enhancing frontend with animations, transitions, and overlays.

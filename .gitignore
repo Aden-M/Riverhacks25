@@ -1,0 +1,11 @@
+# .gitignore
+.env
+*.env
+secrets.env
+*.log
+*.pid
+*.sock
+node_modules/
+__pycache__/
+secrets/
+acme.json

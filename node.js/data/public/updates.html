@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Updates & Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .update-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .emergency {
+            border-left: 4px solid #dc3545;
+        }
+        .weather {
+            border-left: 4px solid #ffc107;
+        }
+        .government {
+            border-left: 4px solid #0077cc;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Updates & Events</h1>
+    </header>
+
+    <div class="container">
+        <a href="/" class="back-button">← Back to Home</a>
+
+        <section>
+            <h2>Emergency Updates</h2>
+            <div class="update-card emergency">
+                <h3>Sample Emergency Alert</h3>
+                <p>This is a sample emergency alert. In a real scenario, this would contain critical information about ongoing emergencies.</p>
+                <p class="timestamp">Posted: April 26, 2025</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Weather Alerts</h2>
+            <div class="update-card weather">
+                <h3>Sample Weather Update</h3>
+                <p>This is a sample weather alert. In a real scenario, this would contain important weather-related information and forecasts.</p>
+                <p class="timestamp">Posted: April 26, 2025</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Government Announcements</h2>
+            <div class="update-card government">
+                <h3>Sample Government Notice</h3>
+                <p>This is a sample government announcement. In a real scenario, this would contain official notices and important civic information.</p>
+                <p class="timestamp">Posted: April 26, 2025</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Upcoming Events</h2>
+            <div class="update-card">
+                <h3>Community Town Hall</h3>
+                <p>Sample community event description. Join us for an important discussion about community matters.</p>
+                <p><strong>Date:</strong> May 1, 2025</p>
+                <p><strong>Location:</strong> City Hall</p>
+                <p><strong>Time:</strong> 6:00 PM - 8:00 PM</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

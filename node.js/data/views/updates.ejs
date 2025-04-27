@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Updates & Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Updates & Events</h1>
+    </header>
+
+    <div class="container">
+        <div class="alert alert-warning">
+            <h2>Emergency Updates</h2>
+            <div id="emergency-updates">
+                <!-- Emergency updates will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Weather Alerts</h2>
+            <div id="weather-alerts">
+                <!-- Weather alerts will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Government Announcements</h2>
+            <div id="gov-announcements">
+                <!-- Government announcements will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Upcoming Events</h2>
+            <div id="upcoming-events">
+                <!-- Events will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to fetch and display updates
+        async function fetchUpdates() {
+            try {
+                const response = await fetch('/api/updates');
+                const data = await response.json();
+                
+                // Update emergency alerts
+                document.getElementById('emergency-updates').innerHTML = data.emergencyUpdates
+                    .map(update => `
+                        <div class="alert alert-warning">
+                            <h3>${update.title}</h3>
+                            <p>${update.description}</p>
+                            <small>Posted: ${new Date(update.timestamp).toLocaleString()}</small>
+                        </div>
+                    `).join('');
+
+                // Update weather alerts
+                document.getElementById('weather-alerts').innerHTML = data.weatherAlerts
+                    .map(alert => `
+                        <div class="alert alert-info">
+                            <h3>${alert.title}</h3>
+                            <p>${alert.description}</p>
+                            <small>Valid until: ${new Date(alert.validUntil).toLocaleString()}</small>
+                        </div>
+                    `).join('');
+
+                // Update government announcements
+                document.getElementById('gov-announcements').innerHTML = data.governmentAnnouncements
+                    .map(announcement => `
+                        <div>
+                            <h3>${announcement.title}</h3>
+                            <p>${announcement.content}</p>
+                            <small>Published: ${new Date(announcement.publishDate).toLocaleString()}</small>
+                        </div>
+                    `).join('');
+
+                // Update events
+                document.getElementById('upcoming-events').innerHTML = data.upcomingEvents
+                    .map(event => `
+                        <div>
+                            <h3>${event.name}</h3>
+                            <p>${event.description}</p>
+                            <p><strong>Location:</strong> ${event.location}</p>
+                            <p><strong>Date:</strong> ${new Date(event.date).toLocaleString()}</p>
+                        </div>
+                    `).join('');
+            } catch (error) {
+                console.error('Error fetching updates:', error);
+            }
+        }
+
+        // Fetch updates immediately and then every 5 minutes
+        fetchUpdates();
+        setInterval(fetchUpdates, 300000);
+    </script>
+</body>
+</html>

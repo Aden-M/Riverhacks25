@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <div class="admin-grid">
+            <!-- User Management -->
+            <div class="card">
+                <h2>User Management</h2>
+                <div class="form-group">
+                    <input type="text" id="user-search" placeholder="Search users...">
+                </div>
+                <div id="user-list">
+                    <!-- User list will be dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Emergency Updates -->
+            <div class="card">
+                <h2>Emergency Updates</h2>
+                <div class="form-group">
+                    <input type="text" id="emergency-title" placeholder="Update Title">
+                </div>
+                <div class="form-group">
+                    <textarea id="emergency-content" placeholder="Update Content"></textarea>
+                </div>
+                <button class="btn" onclick="publishEmergencyUpdate()">Publish Update</button>
+            </div>
+
+            <!-- Event Management -->
+            <div class="card">
+                <h2>Event Management</h2>
+                <div class="form-group">
+                    <input type="text" id="event-name" placeholder="Event Name">
+                </div>
+                <div class="form-group">
+                    <input type="datetime-local" id="event-date">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="event-location" placeholder="Location">
+                </div>
+                <div class="form-group">
+                    <textarea id="event-description" placeholder="Event Description"></textarea>
+                </div>
+                <button class="btn" onclick="createEvent()">Create Event</button>
+            </div>
+
+            <!-- Resource Management -->
+            <div class="card">
+                <h2>Resource Management</h2>
+                <div class="form-group">
+                    <input type="text" id="resource-name" placeholder="Resource Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="resource-location" placeholder="Location">
+                </div>
+                <div class="form-group">
+                    <textarea id="resource-description" placeholder="Resource Description"></textarea>
+                </div>
+                <button class="btn" onclick="addResource()">Add Resource</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // User Management
+        async function searchUsers(query) {
+            try {
+                const response = await fetch(`/api/admin/users?q=${encodeURIComponent(query)}`);
+                const users = await response.json();
+                displayUsers(users);
+            } catch (error) {
+                console.error('Error searching users:', error);
+            }
+        }
+
+        function displayUsers(users) {
+            const userList = document.getElementById('user-list');
+            userList.innerHTML = users.map(user => `
+                <div class="user-item">
+                    <span>${user.name} (${user.email})</span>
+                    <button class="btn" onclick="manageUser('${user.id}')">Manage</button>
+                </div>
+            `).join('');
+        }
+
+        // Emergency Updates
+        async function publishEmergencyUpdate() {
+            const title = document.getElementById('emergency-title').value;
+            const content = document.getElementById('emergency-content').value;
+
+            try {
+                await fetch('/api/admin/emergency-updates', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ title, content }),
+                });
+                alert('Emergency update published successfully');
+            } catch (error) {
+                console.error('Error publishing update:', error);
+                alert('Failed to publish update');
+            }
+        }
+
+        // Event Management
+        async function createEvent() {
+            const event = {
+                name: document.getElementById('event-name').value,
+                date: document.getElementById('event-date').value,
+                location: document.getElementById('event-location').value,
+                description: document.getElementById('event-description').value,
+            };
+
+            try {
+                await fetch('/api/admin/events', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(event),
+                });
+                alert('Event created successfully');
+            } catch (error) {
+                console.error('Error creating event:', error);
+                alert('Failed to create event');
+            }
+        }
+
+        // Resource Management
+        async function addResource() {
+            const resource = {
+                name: document.getElementById('resource-name').value,
+                location: document.getElementById('resource-location').value,
+                description: document.getElementById('resource-description').value,
+            };
+
+            try {
+                await fetch('/api/admin/resources', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(resource),
+                });
+                alert('Resource added successfully');
+            } catch (error) {
+                console.error('Error adding resource:', error);
+                alert('Failed to add resource');
+            }
+        }
+
+        // Set up event listeners
+        document.getElementById('user-search').addEventListener('input', (e) => {
+            searchUsers(e.target.value);
+        });
+    </script>
+</body>
+</html>
