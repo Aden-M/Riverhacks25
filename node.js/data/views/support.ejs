@@ -2,110 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Support Chat</title>
+  <title>Support Page</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+
   <style>
     body {
       font-family: 'Public Sans', sans-serif;
       background-color: #f9f9f9;
-      margin: 0;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin: 2rem;
     }
 
-    h1 {
-      color: #005ea2;
-    }
-
-    form {
-      display: flex;
-      margin-top: 2rem;
-      gap: 0.5rem;
-    }
-
-    input[type="text"] {
-      padding: 0.8rem;
-      font-size: 1rem;
-      width: 250px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      padding: 0.8rem 1.5rem;
-      background-color: #005ea2;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #004080;
-    }
-
-    .response {
-      margin-top: 2rem;
-      padding: 1rem;
-      background-color: #e6f0fa;
-      border: 1px solid #005ea2;
-      border-radius: 5px;
-      width: 300px;
+    .container {
+      width: 60%;
+      max-width: none;
+      margin: 0 auto;
       text-align: center;
+    }
+
+    .welcome-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background: #ffffff;
+      border: 1px solid #d6d7d9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 2rem 3rem;
+      margin-bottom: 2rem;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #1b1b1b;
+    }
+
+    .logo-img {
+      height: 60px;
+      width: auto;
+    }
+
+    .support-section {
+      background: #ffffff;
+      border: 1px solid #d6d7d9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .support-form {
+      margin-bottom: 2rem;
+    }
+
+    .support-form input[type="text"],
+    .support-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .support-form textarea {
+      height: 200px;
+      resize: vertical;
+      overflow-y: auto;
+    }
+
+    .stripe-bar {
+      width: 100%;
+      height: 24px;
+      margin: 2rem auto 2rem;
+      background-color: rgb(101, 55, 29);
+      border-radius: 4px;
+    }
+
+    .nav-button, .submit-button {
+      background-color: rgb(101, 55, 29);
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: 240px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-button:hover, .submit-button:hover {
+      background-color: rgba(101, 55, 29, 0.85);
+    }
+
+    #popup-message {
       display: none;
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      background-color: #ffffff;
+      color: #1b1b1b;
+      padding: 1rem 2rem;
+      border: 2px solid rgb(101, 55, 29);
+      border-radius: 8px;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    @media (max-width: 992px) {
+      .container {
+        width: 90%;
+      }
+
+      .stripe-bar {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="container text-center">
+    <div class="welcome-box">
+      <img src="/resources/logo.png" alt="Site Logo" class="logo-img">
+      <span>Support Center</span>
+    </div>
 
-  <h1>Support Chat</h1>
+    <div class="support-section">
+      <h2>Need Help?</h2>
+      <p>If you need assistance, please contact our support team or consult our FAQ section.</p>
+    </div>
 
-  <form id="support-form">
-    <input type="text" id="userMessage" placeholder="Type your message..." required />
-    <button type="submit">Send</button>
-  </form>
+    <div class="support-form">
+      <input type="text" id="support-title" placeholder="Support Request Title">
+      <textarea id="support-message" placeholder="Describe your issue..."></textarea>
+      <button class="submit-button" onclick="showPopup()">Submit Request</button>
+    </div>
 
-  <div class="response" id="response-box"></div>
+    <div class="stripe-bar"></div>
+
+    <button class="nav-button" onclick="location.href='/'">Return to Home</button>
+  </div>
+
+  <div id="popup-message">Request submitted to CityServeATX staff!</div>
 
   <script>
-    document.getElementById('support-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
+  function showPopup() {
+    const popup = document.getElementById('popup-message');
+    const titleField = document.getElementById('support-title');
+    const messageField = document.getElementById('support-message');
 
-      const input = document.getElementById('userMessage');
-      const message = input.value.trim();
-      const responseBox = document.getElementById('response-box');
+    popup.style.display = 'block';
+    popup.style.opacity = '1';
 
-      if (!message) return;
+    // Clear the fields
+    titleField.value = '';
+    messageField.value = '';
 
-      responseBox.style.display = 'block';
-      responseBox.innerText = '🤔 Thinking...';
-
-      try {
-        const response = await fetch('/api/support', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ message })
-        });
-
-        if (!response.ok) throw new Error('Server error');
-
-        const data = await response.json();
-        responseBox.innerText = `🤖 ${data.reply}`;
-        input.value = ''; // Clear input after sending
-      } catch (error) {
-        console.error('Error:', error);
-        responseBox.innerText = '❌ Failed to send message. Please try again.';
-      }
-    });
+    setTimeout(() => {
+      popup.style.opacity = '0';
+    }, 2000);
+    setTimeout(() => {
+      popup.style.display = 'none';
+      popup.style.opacity = '1';
+    }, 3000);
+  }
   </script>
-
 </body>
 </html>
