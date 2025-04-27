@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <title>Navigation Page</title>
   
-  <!-- Load Public Sans from Google Fonts -->
+  <!-- Load Public Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/css/style.css">
-  
   <style>
     body {
       font-family: 'Public Sans', sans-serif;
+      text-align: center;
+      margin-top: 3rem;
     }
     .welcome-box {
       margin: 2rem auto;
@@ -20,11 +21,28 @@
       text-align: center;
       font-weight: bold;
       font-size: 2rem;
-      color: #007BFF; /* vibrant blue */
+      color: #007BFF;
       border: 2px solid #007BFF;
       border-radius: 8px;
-      background-color: #f0f8ff; /* light background */
+      background-color: #f0f8ff;
       box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    }
+    .button-container {
+      margin-top: 2rem;
+    }
+    .nav-button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .nav-button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
@@ -32,6 +50,11 @@
 
   <div class="welcome-box">
     Welcome to our site!
+  </div>
+
+  <div class="button-container">
+    <button class="nav-button" onclick="location.href='/info'">Go to Info</button>
+    <button class="nav-button" onclick="location.href='/map'">Go to Map</button>
   </div>
 
 </body>

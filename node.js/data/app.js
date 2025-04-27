@@ -33,7 +33,7 @@ app.get('/navigation', (req, res) => {
   });
   
 app.get('/', (req, res) => {
-  res.redirect('/map');
+  res.redirect('/navigation');
 });
 
 // Start server
