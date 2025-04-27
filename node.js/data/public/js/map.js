@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Initialize the map centered on a default location
 const map = L.map('map').setView([39.8283, -98.5795], 4); // Center of USA
 
@@ -99,3 +100,18 @@ map.on('locationfound', (e) => {
 map.on('locationerror', (e) => {
     console.error('Error getting location:', e.message);
 });
+=======
+// Initialize map
+const map = L.map('map').setView([37.7749, -122.4194], 13); // Example: San Francisco
+
+// Add OpenStreetMap tiles
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// Add a marker
+const marker = L.marker([37.7749, -122.4194]).addTo(map);
+
+// Popup with info
+marker.bindPopup("<b>Hello!</b><br>This is San Francisco.").openPopup();
+>>>>>>> bfe5b35aff33e8a3da11310d31db8e6894322647

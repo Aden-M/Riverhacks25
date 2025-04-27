@@ -1,6 +1,10 @@
 body {
     margin: 0;
+<<<<<<< HEAD
     font-family: 'Public Sans', sans-serif;
+=======
+    font-family: Arial, sans-serif;
+>>>>>>> bfe5b35aff33e8a3da11310d31db8e6894322647
 }
 
 header {
@@ -13,6 +17,7 @@ header {
 #map {
     height: 90vh;
 }
+<<<<<<< HEAD
 
 .container {
     max-width: 1200px;
@@ -122,3 +127,5 @@ header {
     color: #ef6c00;
     border: 1px solid #ffe0b2;
 }
+=======
+>>>>>>> bfe5b35aff33e8a3da11310d31db8e6894322647
