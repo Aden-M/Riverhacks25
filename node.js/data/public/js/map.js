@@ -7,7 +7,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // Add a marker
-const marker = L.marker([37.7749, -122.4194]).addTo(map);
+const marker = L.marker([30.2671, -97.7433]).addTo(map);
 
 // Popup with info
-marker.bindPopup("<b>Hello!</b><br>This is San Francisco.").openPopup();
+marker.bindPopup("<b>Hello!</b><br>This is Austin.").openPopup();
