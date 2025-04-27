@@ -47,7 +47,6 @@
       width: auto;
     }
 
-    /* Three-column layout for map, buttons, and events */
     .side-sections {
       display: flex;
       gap: 2rem;
@@ -69,7 +68,6 @@
       padding: 1.5rem;
     }
 
-    /* Map styles */
     .map-box h2,
     .events-section h2 {
       font-size: 1.5rem;
@@ -89,18 +87,9 @@
       border-radius: 6px;
     }
 
-    /* Button grid styles */
     .button-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    .left-column,
-    .right-column {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
     }
 
@@ -123,7 +112,6 @@
       background-color: rgba(101, 55, 29, 0.85);
     }
 
-    /* Event list styles */
     .event-item {
       text-align: left;
       padding-bottom: 1rem;
@@ -145,14 +133,20 @@
       font-size: 0.9rem;
     }
 
-    /* Override nested container for bottom cards to match main width */
+    .stripe-bar {
+      width: 100%;
+      height: 24px;
+      margin: 0 auto 3rem;
+      background-color: rgb(101, 55, 29);
+      border-radius: 4px;
+    }
+
     section.text-center > .container {
       width: 100%;
       max-width: none;
       padding: 0 1rem;
     }
 
-    /* Reset Login.gov link style */
     a.btn-link.text-primary {
       color: #0d6efd !important;
     }
@@ -162,7 +156,6 @@
       text-decoration: underline;
     }
 
-    /* Responsive tweaks */
     @media (max-width: 992px) {
       .side-sections {
         flex-direction: column;
@@ -173,40 +166,38 @@
         width: 100%;
         max-width: none;
       }
+
+      .stripe-bar {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="container text-center">
-    <!-- Title Banner -->
     <div class="welcome-box">
       <img src="/resources/logo.png" alt="Site Logo" class="logo-img">
       <span>CityServeATX</span>
     </div>
 
-    <!-- Map, Buttons & Events -->
     <div class="side-sections">
-      <!-- Map -->
       <div class="map-box">
         <h2>Map</h2>
         <div class="map-placeholder">[Map Here]</div>
       </div>
 
-      <!-- Buttons -->
       <div class="button-grid">
-        <div class="left-column">
-          <button class="nav-button" onclick="location.href='/info'">Info</button>
-          <button class="nav-button" onclick="location.href='/map'">Map</button>
-          <button class="nav-button" onclick="location.href='/events'">Events</button>
-        </div>
-        <div class="right-column">
-          <button class="nav-button" onclick="location.href='/support'">Support</button>
-          <button class="nav-button" onclick="location.href='/profile'">Profile</button>
-        </div>
+        <button class="nav-button" onclick="location.href='/info'">Info</button>
+        <button class="nav-button" onclick="location.href='/map'">Map</button>
+        <button class="nav-button" onclick="location.href='/events'">Events</button>
+        <button class="nav-button" onclick="location.href='/support'">Support</button>
+        <button class="nav-button" onclick="location.href='/profile'">Profile</button>
+        <button class="nav-button">Placeholder</button>
+        <button class="nav-button">Placeholder</button>
+        <button class="nav-button">Placeholder</button>
       </div>
 
-      <!-- Events -->
       <div class="events-section">
         <h2>Upcoming Events</h2>
         <div class="event-item">
@@ -224,7 +215,8 @@
       </div>
     </div>
 
-    <!-- Login.gov–style Cards -->
+    <div class="stripe-bar"></div>
+
     <section class="text-center">
       <div class="container py-5">
         <div class="my-4"></div>
