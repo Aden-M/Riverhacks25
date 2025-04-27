@@ -6,16 +6,16 @@ services:
     working_dir: /app
     volumes:
       - ./data:/app
-    command: "sh -c 'npm install && npm start'"
+    command: "npm start"
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.datachefs.entrypoints=http"
-      - "traefik.http.routers.datachefs.rule=Host(`datachefs.amsolutions.cc`)"
+      - "traefik.http.routers.datachefs.rule=Host(`cityserveatx.amsolutions.cc`)"
       - "traefik.http.middlewares.datachefs-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.routers.datachefs.middlewares=datachefs-https-redirect"
       - "traefik.http.routers.datachefs-secure.entrypoints=https"
-      - "traefik.http.routers.datachefs-secure.rule=Host(`datachefs.amsolutions.cc`)"
+      - "traefik.http.routers.datachefs-secure.rule=Host(`cityserveatx.amsolutions.cc`)"
       - "traefik.http.routers.datachefs-secure.tls=true"
       - "traefik.http.routers.datachefs-secure.service=datachefs"
       - "traefik.http.services.datachefs.loadbalancer.server.port=3000"
