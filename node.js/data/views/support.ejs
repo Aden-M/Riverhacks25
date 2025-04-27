@@ -67,7 +67,7 @@
   <h1>Support Chat</h1>
 
   <form id="support-form">
-    <input type="text" placeholder="Type your message..." required />
+    <input type="text" id="userMessage" placeholder="Type your message..." required />
     <button type="submit">Send</button>
   </form>
 
@@ -77,11 +77,14 @@
     document.getElementById('support-form').addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const input = this.querySelector('input[type="text"]');
+      const input = document.getElementById('userMessage');
       const message = input.value.trim();
       const responseBox = document.getElementById('response-box');
 
       if (!message) return;
+
+      responseBox.style.display = 'block';
+      responseBox.innerText = '🤔 Thinking...';
 
       try {
         const response = await fetch('/api/support', {
@@ -95,13 +98,11 @@
         if (!response.ok) throw new Error('Server error');
 
         const data = await response.json();
-        responseBox.innerText = data.reply;
-        responseBox.style.display = 'block';
-        input.value = '';
+        responseBox.innerText = `🤖 ${data.reply}`;
+        input.value = ''; // Clear input after sending
       } catch (error) {
         console.error('Error:', error);
-        responseBox.innerText = 'Failed to send message.';
-        responseBox.style.display = 'block';
+        responseBox.innerText = '❌ Failed to send message. Please try again.';
       }
     });
   </script>
