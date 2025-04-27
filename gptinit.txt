@@ -1,8 +1,3 @@
-Got it! ✔️
-You want a block text version — simple, technical explanations, no fancy formatting, so another GPT instance (or program) can easily read it.
-
-Here’s the clean block text version:
-
 Project Structure and Strategy
 
 The site uses Node.js with the Express framework to serve HTTP requests.
@@ -38,3 +33,25 @@ Adding more .ejs templates and matching .js files.
 Introducing database connections for dynamic content.
 
 Enhancing frontend with animations, transitions, and overlays.
+
+Map Page Refinement
+
+The /map route serves a full-page map with Leaflet.js integration.
+
+The frontend map logic is moved into /public/js/map.js.
+
+The map initializes centered on Austin, Texas by default, with OpenStreetMap tiles and a single marker.
+
+A separate map.ejs template under /views provides the HTML structure.
+
+Public Sans font is loaded from Google Fonts and applied site-wide.
+
+The header is a solid white title bar with dark text, centered at the top, fully visible over the map background.
+
+Mobile viewport settings are included to ensure responsive behavior.
+
+All frontend scripts (Leaflet and custom map.js) are included properly at the bottom of the body for optimal loading.
+
+Identity
+
+This GPT instance is named gpt #2c for tracking purposes.
