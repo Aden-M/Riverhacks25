@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Navigation Page</title>
 
+  <!-- Load Bootstrap (for cards section) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Load Public Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
@@ -12,24 +15,14 @@
     body {
       font-family: 'Public Sans', sans-serif;
       background-color: #f9f9f9;
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .logo {
-      margin-top: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .logo img {
-      height: 60px;
-      width: auto;
+      margin: 2rem;
     }
 
     .content-container {
       margin: 0 auto;
       max-width: 800px;
       padding: 0 1rem;
+      text-align: center;
     }
 
     .welcome-box {
@@ -42,13 +35,24 @@
       border-radius: 8px;
       background-color: #ffffff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .logo-img {
+      height: 60px;
+      width: auto;
     }
 
     .button-grid {
       display: flex;
       justify-content: center;
-      gap: 4rem; /* more spacing between left and right groups */
+      gap: 4rem;
       margin-top: 2rem;
+      flex-wrap: wrap;
+      position: relative;
     }
 
     .left-column, .right-column {
@@ -68,7 +72,7 @@
       transition: background-color 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      width: 240px; /* fixed width matching original vibe */
+      width: 240px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
@@ -76,14 +80,76 @@
       background-color: #0056b3;
     }
 
-    @media (max-width: 700px) {
-      .button-grid {
+    /* CONTAINER for map and events */
+    .side-sections {
+      display: flex;
+      gap: 1.5rem;
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+    }
+
+    .map-box, .events-section {
+      width: 260px;
+      background-color: #ffffff;
+      border: 1px solid #d6d7d9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .map-box h2, .events-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #1b1b1b;
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 150px;
+      background-color: #eef2f7;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .event-item {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    .event-item:last-child {
+      border-bottom: none;
+    }
+
+    .event-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-date {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .side-sections {
+        position: static;
         flex-direction: column;
         align-items: center;
+        margin-top: 2rem;
       }
-      .left-column, .right-column {
-        flex-direction: column;
-        align-items: center;
+
+      .map-box, .events-section {
+        width: 100%;
+        max-width: 500px;
       }
     }
   </style>
@@ -91,13 +157,10 @@
 
 <body>
 
-  <div class="logo">
-    <img src="/resources/logo.png" alt="Site Logo">
-  </div>
-
   <div class="content-container">
     <div class="welcome-box">
-      Welcome to our site!
+      <img src="/resources/logo.png" alt="Site Logo" class="logo-img">
+      <span>CityServeATX</span>
     </div>
 
     <div class="button-grid">
@@ -113,6 +176,87 @@
       </div>
     </div>
   </div>
+
+  <!-- NEW: Map + Events Container -->
+  <div class="side-sections">
+    <!-- Map Box -->
+    <div class="map-box">
+      <h2>Map</h2>
+      <div class="map-placeholder">
+        [Map Here]
+      </div>
+    </div>
+
+    <!-- Events Sidebar -->
+    <div class="events-section">
+      <h2>Upcoming Events</h2>
+      <div class="event-item">
+        <div class="event-title">Community Clean-Up</div>
+        <div class="event-date">May 5, 2025</div>
+      </div>
+      <div class="event-item">
+        <div class="event-title">Food Drive</div>
+        <div class="event-date">May 12, 2025</div>
+      </div>
+      <div class="event-item">
+        <div class="event-title">Fundraising Gala</div>
+        <div class="event-date">June 1, 2025</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✨ NEW SECTION: Login.gov style cards below -->
+
+  <section class="py-5 text-center">
+    <div class="container">
+      <h2 class="mb-5">CityServeATX is for you</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="/path/to/individuals-icon.png" class="card-img-top mx-auto mt-4" style="width: 120px;" alt="Important Events">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Events</h5>
+              <p class="card-text">Use one site to see all important events at a moments notice.</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+              <a href="#" class="btn btn-link text-primary fw-bold text-decoration-none">Learn about event tracking</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="/path/to/agency-partners-icon.png" class="card-img-top mx-auto mt-4" style="width: 120px;" alt="Citizen Awareness">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Crime Location</h5>
+              <p class="card-text">Protect your property by knowing high-crime rate areas.</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+              <a href="#" class="btn btn-link text-primary fw-bold text-decoration-none">Become knowledgable</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="/path/to/agency-developers-icon.png" class="card-img-top mx-auto mt-4" style="width: 140px;" alt="Law Enforcement Partners">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Law Enforcement Notification</h5>
+              <p class="card-text">Submit real-time reports to fellow citizens and law enforcement.</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+              <a href="#" class="btn btn-link text-primary fw-bold text-decoration-none">See reporting system</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS (optional if you plan to use components that require JS) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
